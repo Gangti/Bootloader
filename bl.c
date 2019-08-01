@@ -79,40 +79,42 @@
 // RESET		finalise flash programming, reset chip and starts application
 //
 
-#define BL_PROTOCOL_VERSION 		5		// The revision of the bootloader protocol
+// FT045/FIXED BY ZSY/20170907/BOOTLOADER CUSTOMIZATION
+#define BL_PROTOCOL_VERSION 		6		// The revision of the bootloader protocol
 //* Next revision needs to update
 
 // protocol bytes
-#define PROTO_INSYNC				0x12    // 'in sync' byte sent before status
-#define PROTO_EOC					0x20    // end of command
+#define PROTO_INSYNC				0x62    // 'in sync' byte sent before status
+#define PROTO_EOC					0x70    // end of command
 
 // Reply bytes
-#define PROTO_OK					0x10    // INSYNC/OK      - 'ok' response
-#define PROTO_FAILED				0x11    // INSYNC/FAILED  - 'fail' response
-#define PROTO_INVALID				0x13	// INSYNC/INVALID - 'invalid' response for bad commands
-#define PROTO_BAD_SILICON_REV 		0x14 	// On the F4 series there is an issue with < Rev 3 silicon
-#define PROTO_RESERVED_0X15     0x15  // Reserved
+#define PROTO_OK					0x60    // INSYNC/OK      - 'ok' response
+#define PROTO_FAILED				0x61    // INSYNC/FAILED  - 'fail' response
+#define PROTO_INVALID				0x63	// INSYNC/INVALID - 'invalid' response for bad commands
+#define PROTO_BAD_SILICON_REV 		0x64 	// On the F4 series there is an issue with < Rev 3 silicon
+#define PROTO_RESERVED_0X15     0x65  // Reserved
 
 // see https://pixhawk.org/help/errata
 // Command bytes
-#define PROTO_GET_SYNC				0x21    // NOP for re-establishing sync
-#define PROTO_GET_DEVICE			0x22    // get device ID bytes
-#define PROTO_CHIP_ERASE			0x23    // erase program area and reset program address
-#define PROTO_PROG_MULTI			0x27    // write bytes at program address and increment
-#define PROTO_GET_CRC				0x29	// compute & return a CRC
-#define PROTO_GET_OTP				0x2a	// read a byte from OTP at the given address
-#define PROTO_GET_SN				0x2b    // read a word from UDID area ( Serial)  at the given address
-#define PROTO_GET_CHIP				0x2c    // read chip version (MCU IDCODE)
-#define PROTO_SET_DELAY				0x2d    // set minimum boot delay
-#define PROTO_GET_CHIP_DES			0x2e    // read chip version In ASCII
-#define PROTO_BOOT					0x30    // boot the application
-#define PROTO_DEBUG					0x31    // emit debug information - format not defined
-#define PROTO_SET_BAUD				0x33    // set baud rate on uart
+#define PROTO_GET_SYNC				0x71    // NOP for re-establishing sync
+#define PROTO_GET_DEVICE			0x72    // get device ID bytes
+#define PROTO_CHIP_ERASE			0x73    // erase program area and reset program address
+#define PROTO_PROG_MULTI			0x77    // write bytes at program address and increment
+#define PROTO_GET_CRC				0x79	// compute & return a CRC
+#define PROTO_GET_OTP				0x7a	// read a byte from OTP at the given address
+#define PROTO_GET_SN				0x7b    // read a word from UDID area ( Serial)  at the given address
+#define PROTO_GET_CHIP				0x7c    // read chip version (MCU IDCODE)
+#define PROTO_SET_DELAY				0x7d    // set minimum boot delay
+#define PROTO_GET_CHIP_DES			0x7e    // read chip version In ASCII
+#define PROTO_BOOT					0x80    // boot the application
+#define PROTO_DEBUG					0x81    // emit debug information - format not defined
+#define PROTO_SET_BAUD				0x83    // set baud rate on uart
 
-#define PROTO_RESERVED_0X36     0x36  // Reserved
-#define PROTO_RESERVED_0X37     0x37  // Reserved
-#define PROTO_RESERVED_0X38     0x38  // Reserved
-#define PROTO_RESERVED_0X39     0x39  // Reserved
+#define PROTO_RESERVED_0X36     0x86  // Reserved
+#define PROTO_RESERVED_0X37     0x87  // Reserved
+#define PROTO_RESERVED_0X38     0x88  // Reserved
+#define PROTO_RESERVED_0X39     0x89  // Reserved
+// FT045/CLOSE BY ZSY/20170907/BOOTLOADER CUSTOMIZATION
 
 #define PROTO_PROG_MULTI_MAX    64	// maximum PROG_MULTI size
 #define PROTO_READ_MULTI_MAX    255	// size of the size field
