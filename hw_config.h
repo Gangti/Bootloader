@@ -137,7 +137,9 @@
 # define BOARD_FLASH_SECTORS            ((_FLASH_KBYTES == 0x400) ? 11 : 23)
 # define BOARD_FLASH_SIZE               (_FLASH_KBYTES * 1024)
 
-# define OSC_FREQ                       24
+/* FT023/FIXED BY ZSY/20180208/PX4FMU USE 25MHz CRYSTAL */
+# define OSC_FREQ                       25
+/* FT023/CLOSE BY ZSY/20180208/PX4FMU USE 25MHz CRYSTAL */
 
 # define BOARD_PIN_LED_ACTIVITY         0               // no activity LED
 # define BOARD_PIN_LED_BOOTLOADER       GPIO12
@@ -198,7 +200,9 @@
 # define BOARD_FLASH_SECTORS            ((_FLASH_KBYTES == 0x400) ? 11 : 23)
 # define BOARD_FLASH_SIZE               (_FLASH_KBYTES * 1024)
 
-# define OSC_FREQ                       24
+/* FT023/FIXED BY ZSY/20180208/PX4FMU USE 25MHz CRYSTAL */
+# define OSC_FREQ                       25
+/* FT023/CLOSE BY ZSY/20180208/PX4FMU USE 25MHz CRYSTAL */
 
 # define BOARD_PIN_LED_ACTIVITY         0               // no activity LED
 # define BOARD_PIN_LED_BOOTLOADER       GPIO12
@@ -544,7 +548,9 @@
 # define USBDEVICESTRING                ""
 # define USBPRODUCTID                   -1
 
-# define OSC_FREQ                       24
+/* FT027/FIXED BY ZSY/20180208/PX4IO USE 8MHz CRYSTAL */
+# define OSC_FREQ                       8
+/* FT027/CLOSE BY ZSY/20180208/PX4IO USE 8MHz CRYSTAL */
 
 # define BOARD_PIN_LED_ACTIVITY         GPIO14
 # define BOARD_PIN_LED_BOOTLOADER       GPIO15
